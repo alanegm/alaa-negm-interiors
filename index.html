@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Alaa Negm Interiors</title>
+<meta name="description" content="Alaa Negm — interior design, 3D visualisation and fit-out. تصميم داخلي وتنفيذ.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Manrope:wght@400;500;700&family=Reem+Kufi:wght@500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:system-ui,sans-serif}
+[hidden]{display:none!important}
+/* Layout: quiet gallery (big photos, wide margins, few words) + always-visible ways to reach Alaa (WhatsApp, quote form). */
+:root{
+  --stone:#F1ECE8;      /* logo rust, diluted almost to white */
+  --paper:#FAF8F6;
+  --ink:#121219;        /* logo black */
+  --muted:#5E5A5C;
+  --line:#E2DAD4;
+  --rust:#A3360C;       /* logo rust */
+  --sea:#2F5D62;
+  --wa:#1E8E4E;
+  --on-accent:#FFFFFF;
+  --scrim:rgba(12,15,16,.92);
+  --display-lat:"Marcellus", "Times New Roman", serif;
+  --display-ar:"Reem Kufi", "IBM Plex Sans Arabic", Tahoma, sans-serif;
+  --body-lat:"Manrope", system-ui, sans-serif;
+  --body-ar:"IBM Plex Sans Arabic", Tahoma, system-ui, sans-serif;
+  --gutter-l:max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r:max(16px, env(safe-area-inset-right, 0px));
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --stone:#191920; --paper:#121219; --ink:#EEEAE7; --muted:#A39C98; --line:#2B2A31;
+  --rust:#E2703F; --sea:#3D7379; --wa:#2DB26A; --on-accent:#101415; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --stone:#191920; --paper:#121219; --ink:#EEEAE7; --muted:#A39C98; --line:#2B2A31;
+  --rust:#E2703F; --sea:#3D7379; --wa:#2DB26A; --on-accent:#101415; color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-size:16px;line-height:1.7}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+#site{font-family:var(--body-ar)}
+#site[data-lang="en"]{font-family:var(--body-lat)}
+#site[data-lang="ar"] [lang="en"], #site[data-lang="en"] [lang="ar"]{display:none!important}
+h1,h2,h3{font-family:var(--display-ar);font-weight:500;line-height:1.25;text-wrap:balance;margin:0}
+#site[data-lang="en"] :is(h1,h2,h3){font-family:var(--display-lat);font-weight:400}
+p{margin:0}
+a{color:inherit}
+img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--rust);outline-offset:3px}
+.wrap{max-width:1200px;margin-inline:auto;padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
+.eyebrow{font-family:var(--body-lat);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+#site[data-lang="ar"] .eyebrow{letter-spacing:0;font-family:var(--body-ar);font-size:13px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:2px;text-decoration:none;font-weight:600;font-size:15px;border:1px solid var(--ink);cursor:pointer;background:none;color:var(--ink);font-family:inherit}
+.btn.wa{background:var(--wa);border-color:var(--wa);color:var(--on-accent)}
+.btn:hover{opacity:.88}
+.btn svg{width:18px;height:18px;flex:none}
+.cover{width:100%;height:100%;object-fit:cover}
+.frame{overflow:hidden;background:var(--stone);max-width:100%}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+/* wordmark cut from the original logo, used as masks so it takes the theme colors */
+.logo{display:flex;flex-direction:column;align-items:flex-start;gap:7px;text-decoration:none;padding-block:2px}
+.logo span{display:block;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:100% 100%;mask-size:100% 100%}
+.logo .l1{width:57px;height:16.5px;background:var(--ink);-webkit-mask-image:url(img/logo-alaa.png);mask-image:url(img/logo-alaa.png)}
+.logo .l2{width:67px;height:17px;background:var(--rust);-webkit-mask-image:url(img/logo-negm.png);mask-image:url(img/logo-negm.png)}
+nav{display:flex;gap:28px;font-size:15px}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+.tools{display:flex;gap:10px;align-items:center}
+.lang{border:1px solid var(--line);background:none;color:var(--ink);padding:8px 12px;font:600 13px var(--body-lat);cursor:pointer;border-radius:2px}
+.tools .btn{padding:9px 14px;font-size:14px}
+@media (max-width:860px){ nav{display:none} .tools .btn span{display:none} }
+
+/* hero */
+.hero{padding-block:48px 72px}
+.hero-grid{display:grid;grid-template-columns:5fr 7fr;gap:48px;align-items:end}
+.hero h1{font-size:clamp(34px,5.4vw,64px)}
+.hero p.lead{color:var(--muted);font-size:18px;max-width:36ch;margin-top:20px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.hero figure{margin:0;display:flex;flex-direction:column;gap:10px}
+.hero .frame{aspect-ratio:4/5}
+.hero figcaption{font-size:13px;color:var(--muted)}
+.coords{display:flex;gap:24px;margin-top:40px;color:var(--muted);font:500 12px var(--body-lat);letter-spacing:.12em}
+@media (max-width:860px){ .hero-grid{grid-template-columns:1fr;gap:32px} .hero .frame{aspect-ratio:4/3} }
+
+section{padding-block:88px;border-top:1px solid var(--line)}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+.sec-head h2{font-size:clamp(28px,3.6vw,42px);margin-top:8px}
+.sec-head .note{color:var(--muted);max-width:44ch}
+
+/* projects (real case studies) */
+.cases{display:flex;flex-direction:column;gap:72px}
+.case{display:grid;grid-template-columns:7fr 5fr;gap:40px;align-items:center}
+.case:nth-child(even) .case-media{order:2}
+.case-media{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:8px;aspect-ratio:16/10;min-width:0}
+.case-media .frame:first-child{grid-row:1/3}
+.case-media button{all:unset;cursor:zoom-in;display:block;overflow:hidden;background:var(--stone);position:relative}
+.ai{position:absolute;inset-inline-start:8px;bottom:8px;background:rgba(10,12,13,.72);color:#fff;font:600 11px/1.6 var(--body-lat);letter-spacing:.06em;padding:1px 8px;border-radius:2px;pointer-events:none}
+.tag.ai-tag{border-color:var(--sea);color:var(--sea)}
+.case-media button:focus-visible{outline:2px solid var(--rust);outline-offset:2px}
+.case-media img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.case-media button:hover img{transform:scale(1.03)}
+.case-text{display:flex;flex-direction:column;gap:16px;min-width:0}
+.case-text h3{font-size:clamp(24px,2.6vw,32px)}
+.case-text p{color:var(--muted)}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{font-size:12px;border:1px solid var(--line);color:var(--muted);padding:3px 10px;border-radius:999px}
+.tag.real{border-color:var(--rust);color:var(--rust)}
+.open{align-self:flex-start;border:0;background:none;color:var(--ink);font:inherit;font-weight:600;cursor:pointer;padding:0;border-bottom:1px solid var(--rust)}
+@media (max-width:860px){ .case{grid-template-columns:1fr;gap:20px} .case:nth-child(even) .case-media{order:0} }
+
+/* before / after */
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ba figure{margin:0;position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--stone)}
+.ba figcaption{position:absolute;inset-inline-start:12px;top:12px;background:var(--paper);color:var(--ink);font-size:13px;font-weight:600;padding:3px 10px;border-radius:2px}
+.ba-wrap{display:flex;flex-direction:column;gap:16px;margin-top:72px}
+.ba-wrap h3{font-size:22px}
+@media (max-width:520px){ .ba{grid-template-columns:1fr} }
+
+/* 3D designs */
+.designs{columns:3 280px;column-gap:12px}
+.designs button{all:unset;cursor:zoom-in;display:block;margin-bottom:12px;break-inside:avoid;width:100%;position:relative}
+.designs button:focus-visible{outline:2px solid var(--rust);outline-offset:2px}
+.designs img{width:100%;height:auto}
+
+/* services */
+.services{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink)}
+.svc{padding-block:28px 8px;padding-inline-end:24px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.svc + .svc{border-inline-start:1px solid var(--line);padding-inline-start:24px}
+.svc h3{font-size:22px}
+.svc p{color:var(--muted)}
+.svc ul{margin:4px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;font-size:15px}
+.svc li::before{content:"—";color:var(--rust);margin-inline-end:8px}
+@media (max-width:860px){ .services{grid-template-columns:1fr} .svc + .svc{border-inline-start:0;border-top:1px solid var(--line);padding-inline-start:0} }
+
+/* process (a real sequence, so numbered) */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;counter-reset:s;margin:0;padding:0;list-style:none}
+.steps li{counter-increment:s;display:flex;flex-direction:column;gap:8px;min-width:0}
+.steps li::before{content:counter(s);font:400 40px/1 var(--display-lat);color:var(--rust)}
+.steps b{font-weight:600}
+.steps span{color:var(--muted);font-size:14px}
+@media (max-width:860px){ .steps{grid-template-columns:1fr 1fr} }
+@media (max-width:520px){ .steps{grid-template-columns:1fr} }
+
+/* about */
+.about{display:grid;grid-template-columns:4fr 6fr;gap:56px;align-items:start}
+.about .frame{aspect-ratio:3/4}
+.about .txt{display:flex;flex-direction:column;gap:20px;max-width:60ch}
+.about .txt p{color:var(--muted);font-size:17px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:12px;border-top:1px solid var(--line);padding-top:20px}
+.facts div{display:flex;flex-direction:column}
+.facts b{font:400 34px/1.1 var(--display-lat);font-variant-numeric:tabular-nums}
+.facts span{color:var(--muted);font-size:13px}
+.fill{color:var(--rust)}
+@media (max-width:860px){ .about{grid-template-columns:1fr;gap:32px} .about .frame{aspect-ratio:1/1;max-width:420px} }
+
+/* contact */
+.contact{background:var(--stone)}
+.contact-grid{display:grid;grid-template-columns:5fr 7fr;gap:56px}
+.reach{display:flex;flex-direction:column;gap:24px}
+.reach .row{display:flex;flex-direction:column;gap:4px;border-bottom:1px solid var(--line);padding-bottom:16px}
+.num{font:400 26px var(--display-lat);direction:ltr;unicode-bidi:isolate}
+.copy{align-self:flex-start;border:0;background:none;color:var(--rust);font:inherit;font-size:14px;cursor:pointer;padding:0;text-decoration:underline}
+form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+form .full{grid-column:1/-1}
+label{display:flex;flex-direction:column;gap:6px;font-size:14px;color:var(--muted)}
+input,select,textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:2px;padding:12px 14px;width:100%}
+textarea{min-height:110px;resize:vertical}
+form .btn{justify-content:center}
+.hint{font-size:13px;color:var(--muted)}
+@media (max-width:860px){ .contact-grid{grid-template-columns:1fr} }
+@media (max-width:520px){ form{grid-template-columns:1fr} }
+
+footer{padding-block:32px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer .social{display:flex;gap:18px}
+
+.fab{position:fixed;inset-inline-end:calc(20px + env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:6;width:56px;height:56px;border-radius:50%;background:var(--wa);color:#fff;display:grid;place-items:center;box-shadow:0 6px 20px rgba(0,0,0,.2)}
+.fab svg{width:28px;height:28px}
+
+/* project viewer */
+.viewer{position:fixed;inset:0;z-index:20;background:var(--scrim);color:#EEF0EE;overflow-y:auto;overscroll-behavior:contain;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.viewer-in{max-width:1100px;margin-inline:auto;padding-left:var(--gutter-l);padding-right:var(--gutter-r);padding-block:24px 64px;display:flex;flex-direction:column;gap:20px}
+.viewer-top{display:flex;justify-content:space-between;align-items:center;gap:16px;position:sticky;top:0;padding-block:12px;background:var(--scrim);z-index:1}
+.viewer-top h3{font-size:24px}
+.close{border:1px solid rgba(255,255,255,.4);background:none;color:inherit;font:inherit;padding:8px 16px;cursor:pointer;border-radius:2px}
+.viewer h4{margin:24px 0 0;font-weight:500;font-size:15px;color:#B9C2C3}
+.viewer img{width:100%;height:auto}
+@media (prefers-reduced-motion:reduce){ *{transition:none!important} }
+</style>
+</head>
+<body>
+
+<div id="site" data-lang="en" dir="ltr">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></symbol></svg>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top" aria-label="Alaa Negm" dir="ltr"><span class="l1"></span><span class="l2"></span></a>
+    <nav>
+      <a href="#work"><span lang="ar">المشاريع</span><span lang="en">Projects</span></a>
+      <a href="#designs"><span lang="ar">تصاميم 3D</span><span lang="en">3D designs</span></a>
+      <a href="#services"><span lang="ar">الخدمات</span><span lang="en">Services</span></a>
+      <a href="#about"><span lang="ar">عنّي</span><span lang="en">About</span></a>
+      <a href="#contact"><span lang="ar">تواصل</span><span lang="en">Contact</span></a>
+    </nav>
+    <div class="tools">
+      <button class="lang" id="langBtn" type="button">عربي</button>
+      <a class="btn wa" href="https://wa.me/201224407120" target="_blank" rel="noopener"><svg><use href="#wa"/></svg><span lang="ar">واتساب</span><span lang="en">WhatsApp</span></a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow"><span lang="ar">تصميم داخلي · تنفيذ · إشراف</span><span lang="en">Interior design · Fit-out · Supervision</span></p>
+        <h1 style="margin-top:16px"><span lang="ar">من الرندر<br>لحد المفتاح.</span><span lang="en">From the render to the keys.</span></h1>
+        <p class="lead"><span lang="ar">مصمم ديكور داخلي. بصمم مكانك ثلاثي الأبعاد، وبنفذه بنفسي لحد ما يبقى شبه الرندر بالظبط.</span><span lang="en">Interior designer. I design your space in 3D, then build it until it matches the render.</span></p>
+        <div class="ctas">
+          <a class="btn wa" href="https://wa.me/201224407120" target="_blank" rel="noopener"><svg><use href="#wa"/></svg><span lang="ar">احجز استشارة على واتساب</span><span lang="en">Book a consultation</span></a>
+          <a class="btn" href="#work"><span lang="ar">شوف المشاريع</span><span lang="en">See the projects</span></a>
+        </div>
+      </div>
+      <figure>
+        <div class="frame" style="position:relative"><img class="cover" src="img/ai-eleven-front.jpg" alt="Eleven clothing store"><span class="ai"><span lang="ar">تصوّر AI</span><span lang="en">AI concept</span></span></div>
+        <figcaption><span lang="ar">Eleven، محل ملابس. تصوّر AI للمحل اللي اتنفذ، والصور الحقيقية في المشاريع تحت.</span><span lang="en">Eleven clothing store. AI visualisation of the built store; real photos are in Projects below.</span></figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow"><span lang="ar">مشاريع اتنفذت</span><span lang="en">Built projects</span></p>
+          <h2><span lang="ar">المشاريع</span><span lang="en">Projects</span></h2>
+        </div>
+        <p class="note"><span lang="ar">كل مشروع فيه صور حقيقية من الموقع، والتصميم الـ 3D، وتصوّر AI بستايل 2026 (متعلّم عليه). دوس على أي صورة تشوف المشروع كامل.</span><span lang="en">Each project shows real site photos, the original 3D design and a labelled 2026 AI visualisation. Tap any image to see the full project.</span></p>
+      </div>
+
+      <div class="cases" id="cases"></div>
+
+      <div class="ba-wrap">
+        <p class="eyebrow"><span lang="ar">قبل وبعد</span><span lang="en">Before &amp; after</span></p>
+        <h3><span lang="ar">Eleven: من محل على الطوب لمحل شغال</span><span lang="en">Eleven: from bare shell to open store</span></h3>
+        <div class="ba">
+          <figure><img class="cover" src="img/eleven-b1.jpg" alt="Eleven store before"><figcaption><span lang="ar">قبل</span><span lang="en">Before</span></figcaption></figure>
+          <figure><img class="cover" src="img/eleven-a2.jpg" alt="Eleven store after" style="object-position:50% 70%"><figcaption><span lang="ar">بعد</span><span lang="en">After</span></figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="designs">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow"><span lang="ar">رندرات</span><span lang="en">Renders</span></p>
+          <h2><span lang="ar">تصاميم 3D</span><span lang="en">3D designs</span></h2>
+        </div>
+        <p class="note"><span lang="ar">ريسبشن وليفينج ومطابخ وحمامات ومكاتب. كله تصميمي ورندر بنفسي.</span><span lang="en">Reception rooms, living rooms, kitchens, bathrooms and offices, designed and rendered by me.</span></p>
+      </div>
+      <div class="designs" id="designGrid"></div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head"><div>
+        <p class="eyebrow"><span lang="ar">بعمل إيه</span><span lang="en">What I do</span></p>
+        <h2><span lang="ar">الخدمات</span><span lang="en">Services</span></h2>
+      </div></div>
+      <div class="services">
+        <div class="svc">
+          <h3><span lang="ar">التصميم و الـ 3D</span><span lang="en">Design &amp; 3D</span></h3>
+          <p><span lang="ar">تشوف المكان قبل ما يتنفذ.</span><span lang="en">See the space before a single wall moves.</span></p>
+          <ul>
+            <li><span lang="ar">تخطيط المساحات</span><span lang="en">Space planning</span></li>
+            <li><span lang="ar">تصميم ثلاثي الأبعاد (3D) ورندر</span><span lang="en">3D design &amp; rendering</span></li>
+            <li><span lang="ar">مطابخ وحمامات</span><span lang="en">Kitchens &amp; bathrooms</span></li>
+            <li><span lang="ar">لوحات تنفيذية</span><span lang="en">Construction drawings</span></li>
+          </ul>
+        </div>
+        <div class="svc">
+          <h3><span lang="ar">التنفيذ والتشطيب</span><span lang="en">Fit-out &amp; finishing</span></h3>
+          <p><span lang="ar">من المحارة للمفتاح.</span><span lang="en">From bare walls to handover.</span></p>
+          <ul>
+            <li><span lang="ar">أسقف وإضاءة وأرضيات</span><span lang="en">Ceilings, lighting, floors</span></li>
+            <li><span lang="ar">دهانات وتجاليد وطوب ديكور</span><span lang="en">Paint, cladding, feature brick</span></li>
+            <li><span lang="ar">أثاث ورفوف تفصيل</span><span lang="en">Custom furniture &amp; shelving</span></li>
+            <li><span lang="ar">كافيهات ومحلات وشقق</span><span lang="en">Cafés, shops and homes</span></li>
+          </ul>
+        </div>
+        <div class="svc">
+          <h3><span lang="ar">التجديد والإشراف</span><span lang="en">Renovation &amp; supervision</span></h3>
+          <p><span lang="ar">تجديد مكانك من غير ما تتعب.</span><span lang="en">A renovation without the headache.</span></p>
+          <ul>
+            <li><span lang="ar">تجديد كامل أو جزئي</span><span lang="en">Full or partial renovation</span></li>
+            <li><span lang="ar">إشراف على الصنايعية في الموقع</span><span lang="en">On-site supervision</span></li>
+            <li><span lang="ar">اختيار الخامات معاك</span><span lang="en">Material selection with you</span></li>
+            <li><span lang="ar">التزام بالميزانية والميعاد</span><span lang="en">Budget &amp; schedule tracking</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="wrap">
+      <div class="sec-head"><div>
+        <p class="eyebrow"><span lang="ar">خطوات الشغل</span><span lang="en">How it works</span></p>
+        <h2><span lang="ar">من أول مكالمة لحد التسليم</span><span lang="en">From first call to handover</span></h2>
+      </div></div>
+      <ol class="steps">
+        <li><b><span lang="ar">استشارة</span><span lang="en">Consultation</span></b><span><span lang="ar">نتكلم عن المكان وذوقك والميزانية.</span><span lang="en">We talk about the space, your taste and budget.</span></span></li>
+        <li><b><span lang="ar">معاينة ومقاسات</span><span lang="en">Site visit</span></b><span><span lang="ar">بزور الموقع وبرفع المقاسات.</span><span lang="en">I visit and take measurements.</span></span></li>
+        <li><b><span lang="ar">تصميم 3D</span><span lang="en">3D design</span></b><span><span lang="ar">تشوف التصميم وتعدّل عليه.</span><span lang="en">You review and refine the design.</span></span></li>
+        <li><b><span lang="ar">عرض سعر</span><span lang="en">Quote</span></b><span><span lang="ar">سعر واضح ومدة تنفيذ.</span><span lang="en">A clear price and timeline.</span></span></li>
+        <li><b><span lang="ar">تنفيذ وتسليم</span><span lang="en">Build &amp; handover</span></b><span><span lang="ar">تنفيذ بإشراف لحد ما تستلم.</span><span lang="en">Supervised build until you move in.</span></span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about">
+      <div class="frame"><img class="cover" src="img/portrait.jpg" alt="Alaa Negm"></div>
+      <div class="txt">
+        <p class="eyebrow"><span lang="ar">عنّي</span><span lang="en">About</span></p>
+        <h2><span lang="ar">علاء نجم</span><span lang="en">Alaa Negm</span></h2>
+        <p><span lang="ar">مصمم ديكور داخلي، خريج قسم الديكور بكلية الفنون الجميلة. بشتغل على البيوت والمشاريع التجارية من أول الفكرة لحد التسليم، وبعمل الرندرات بنفسي عشان تشوف مكانك قبل ما نبدأ.</span><span lang="en">Interior designer with a Bachelor's degree in Interior Design from the Faculty of Fine Arts. I work on homes and commercial spaces from first idea to handover, and I render every design myself so you see your space before work starts.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap contact-grid">
+      <div class="reach">
+        <div>
+          <p class="eyebrow"><span lang="ar">تواصل</span><span lang="en">Contact</span></p>
+          <h2 style="margin-top:8px"><span lang="ar">عندك مكان عايز تغيّره؟</span><span lang="en">Have a space you want to change?</span></h2>
+        </div>
+        <div class="row">
+          <span class="eyebrow"><span lang="ar">موبايل وواتساب</span><span lang="en">Phone &amp; WhatsApp</span></span>
+          <span class="num" id="phone">+20 122 440 7120</span>
+          <button class="copy" id="copyBtn" type="button"><span lang="ar">انسخ الرقم</span><span lang="en">Copy number</span></button>
+        </div>
+      </div>
+      <form id="quote" novalidate>
+        <label><span><span lang="ar">الاسم</span><span lang="en">Name</span></span><input id="f-name" autocomplete="name"></label>
+        <label><span><span lang="ar">نوع المشروع</span><span lang="en">Project type</span></span>
+          <select id="f-type">
+            <option value="شقة / Apartment">شقة / Apartment</option>
+            <option value="فيلا / Villa">فيلا / Villa</option>
+            <option value="كافيه أو محل / Café or shop">كافيه أو محل / Café or shop</option>
+            <option value="تجديد / Renovation">تجديد / Renovation</option>
+          </select></label>
+        <label><span><span lang="ar">المساحة تقريباً (م²)</span><span lang="en">Approx. area (m²)</span></span><input id="f-area" inputmode="numeric"></label>
+        <label><span><span lang="ar">المنطقة</span><span lang="en">Area / district</span></span><input id="f-loc"></label>
+        <label class="full"><span><span lang="ar">احكيلي عن المشروع</span><span lang="en">Tell me about the project</span></span><textarea id="f-msg"></textarea></label>
+        <a class="btn wa full" id="sendWa" href="https://wa.me/201224407120" target="_blank" rel="noopener"><svg><use href="#wa"/></svg><span lang="ar">ابعت الطلب على واتساب</span><span lang="en">Send request on WhatsApp</span></a>
+        <p class="hint full"><span lang="ar">الزرار بيفتح واتساب والرسالة مكتوبة جاهزة، وإنت بتدوس إرسال.</span><span lang="en">Opens WhatsApp with your message filled in; you press send.</span></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Alaa Negm Interiors</span>
+    <div class="social">
+      <a href="https://www.facebook.com/alaa.negm18" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.instagram.com/alaanegm" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<a class="fab" href="https://wa.me/201224407120" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#wa"/></svg></a>
+
+<div class="viewer" id="viewer" hidden role="dialog" aria-modal="true" aria-labelledby="vTitle">
+  <div class="viewer-in">
+    <div class="viewer-top"><h3 id="vTitle"></h3><button class="close" id="vClose" type="button"><span lang="ar">قفل</span><span lang="en">Close</span></button></div>
+    <div id="vBody"></div>
+  </div>
+</div>
+</div>
+
+<script>
+(function(){
+  const PROJECTS=[
+    {id:'cafe', cover:['ai-cafe-bar','cafe-a1','cafe-r1'],
+     ar:{t:'كافيه Juventus PlayStation',place:'برج العرب · كافيه وصالة بلايستيشن',d:'حيطة سودا بلوجو Juventus منوّر، رفوف خشب، سقف إسود لامع بسبوتات، ولوجو PlayStation نيون. التصميم اتعمل 3D الأول وبعدين اتنفذ في الموقع.'},
+     en:{t:'Juventus PlayStation Café',place:'Borg El Arab · Café and gaming lounge',d:'A black feature wall with a lit Juventus crest, timber shelving, a glossy black ceiling with spotlights and a neon PlayStation sign. Designed in 3D first, then built on site.'},
+     groups:[
+       {ar:'بعد التنفيذ',en:'Built',imgs:['cafe-a1']},
+       {ar:'تصوّر AI 2026',en:'AI visualisation 2026',imgs:['ai-cafe-bar']},
+       {ar:'التصميم 3D',en:'3D design',imgs:['cafe-r1','cafe-r2','cafe-r3','cafe-r4','cafe-r5','cafe-a2']},
+       {ar:'أثناء التنفيذ',en:'During construction',imgs:['cafe-p1','cafe-p2','cafe-p3','cafe-p4']}]},
+    {id:'eleven', cover:['ai-eleven-front','eleven-a1','eleven-a2'],
+     ar:{t:'Eleven',place:'محل ملابس · تجاري',d:'محل استلمناه على الطوب والسلك، واتحول لمحل فيه لوجو Eleven منوّر على شرايح خشب بين حيطتين نجيلة، وتراكات إضاءة سودا، وتجليد طوب أبيض، ورفوف وستاندات حديد إسود وخشب.'},
+     en:{t:'Eleven',place:'Clothing store · Commercial',d:'Taken over as a bare shell with exposed wiring and turned into a store with a lit Eleven sign on timber slats between two green walls, black track lighting, white brick cladding and black steel racks with timber shelves.'},
+     groups:[
+       {ar:'بعد التنفيذ',en:'Built',imgs:['eleven-a1','eleven-a2']},
+       {ar:'تصوّر AI 2026',en:'AI visualisation 2026',imgs:['ai-eleven-front','ai-eleven-entrance']},
+       {ar:'التصميم 3D',en:'3D design',imgs:['eleven-r1']},
+       {ar:'قبل',en:'Before',imgs:['eleven-b1','eleven-b2','eleven-b3','eleven-b4']}]},
+    {id:'apt', cover:['ai-apt-kitchen-wide','apt-p1','ai-apt-bedroom'],
+     ar:{t:'شقة سكنية',place:'برج العرب · مطبخ وأوضة نوم وليفينج',d:'مطبخ بدواليب سودا ورفوف حمرا مفتوحة وبار، وإطار جبس أزرق في السقف بيتكرر في كل الأوض، وتشكيلات زرقا على حيطة الليفينج. كل أوضة معروض فيها التصميم 3D وجنبه صور الموقع.'},
+     en:{t:'Family apartment',place:'Borg El Arab · Kitchen, bedroom and living room',d:'A kitchen with black cabinets, open red shelving and a breakfast bar, and a blue gypsum ceiling frame repeated through every room, with blue geometric forms on the living-room wall. Each room shows the 3D design next to site photos.'},
+     groups:[
+       {ar:'المطبخ: تصوّر AI 2026',en:'Kitchen: AI visualisation 2026',imgs:['ai-apt-kitchen-wide','ai-apt-kitchen']},
+       {ar:'المطبخ: التصميم 3D',en:'Kitchen: 3D design',imgs:['apt-r3']},
+       {ar:'المطبخ: من الموقع',en:'Kitchen: on site',imgs:['apt-p1','apt-p5']},
+       {ar:'أوضة النوم: تصوّر AI 2026',en:'Bedroom: AI visualisation 2026',imgs:['ai-apt-bedroom']},
+       {ar:'أوضة النوم: التصميم 3D',en:'Bedroom: 3D design',imgs:['apt-r2']},
+       {ar:'أوضة النوم: من الموقع',en:'Bedroom: on site',imgs:['apt-p4','apt-p2','apt-p3']},
+       {ar:'الليفينج: التصميم 3D',en:'Living room: 3D design',imgs:['apt-r1']},
+       {ar:'الليفينج: من الموقع',en:'Living room: on site',imgs:['apt-p6','apt-p7']}]}
+  ];
+  const DESIGNS=['d-dining','d-living2','ai-bath','d-reception','d-living3','d-bath','d-dining2','d-living1','d-office','d-piano','d-lounge','d-living4','d-pink','d-detail'];
+  const src=n=>'img/'+n+'.jpg';
+  const site=document.getElementById('site');
+  const lang=()=>site.dataset.lang;
+  const both=(o,k)=>'<span lang="ar">'+o.ar[k]+'</span><span lang="en">'+o.en[k]+'</span>';
+  const badge=n=>n.startsWith('ai-')?'<span class="ai"><span lang="ar">تصوّر AI</span><span lang="en">AI concept</span></span>':'';
+
+  const cases=document.getElementById('cases');
+  cases.innerHTML=PROJECTS.map(p=>{
+    const count=f=>p.groups.filter(f).reduce((a,g)=>a+g.imgs.length,0);
+    const nAI=count(g=>g.en.includes('AI'));
+    const n3=count(g=>g.en.includes('3D design'));
+    const nB=count(g=>!g.en.includes('AI')&&!g.en.includes('3D design'));
+    return '<article class="case">'+
+      '<div class="case-media">'+p.cover.map((c,i)=>'<button type="button" data-p="'+p.id+'" aria-label="Open project"><img src="'+src(c)+'" alt="" loading="'+(i?'lazy':'eager')+'">'+badge(c)+'</button>').join('')+'</div>'+
+      '<div class="case-text"><p class="eyebrow">'+both(p,'place')+'</p><h3>'+both(p,'t')+'</h3><p>'+both(p,'d')+'</p>'+
+      '<div class="tags">'+(nB?'<span class="tag real"><span lang="ar">'+nB+' صورة من الموقع</span><span lang="en">'+nB+' site photos</span></span>':'')+
+      '<span class="tag"><span lang="ar">'+n3+' رندر 3D</span><span lang="en">'+n3+' 3D renders</span></span>'+
+      (nAI?'<span class="tag ai-tag"><span lang="ar">'+nAI+' تصوّر AI</span><span lang="en">'+nAI+' AI concepts</span></span>':'')+'</div>'+
+      '<button type="button" class="open" data-p="'+p.id+'"><span lang="ar">شوف المشروع كامل</span><span lang="en">See the full project</span></button></div></article>';
+  }).join('');
+
+  document.getElementById('designGrid').innerHTML=DESIGNS.map(d=>'<button type="button" data-d="'+d+'" aria-label="Open 3D design"><img src="'+src(d)+'" alt="3D interior render" loading="lazy">'+badge(d)+'</button>').join('');
+
+  const viewer=document.getElementById('viewer'), vBody=document.getElementById('vBody'), vTitle=document.getElementById('vTitle');
+  let lastFocus=null;
+  function openViewer(title,html){
+    lastFocus=document.activeElement; vTitle.innerHTML=title; vBody.innerHTML=html;
+    viewer.hidden=false; viewer.scrollTop=0; document.body.style.overflow='hidden'; document.getElementById('vClose').focus();
+  }
+  function closeViewer(){ viewer.hidden=true; document.body.style.overflow=''; if(lastFocus) lastFocus.focus(); }
+  document.getElementById('vClose').addEventListener('click',closeViewer);
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&!viewer.hidden) closeViewer(); });
+  document.addEventListener('click',e=>{
+    const b=e.target.closest('[data-p]');
+    if(b){ const p=PROJECTS.find(x=>x.id===b.dataset.p);
+      openViewer(both(p,'t'), '<p style="color:#B9C2C3">'+both(p,'d')+'</p>'+p.groups.map(g=>'<h4><span lang="ar">'+g.ar+'</span><span lang="en">'+g.en+'</span></h4>'+g.imgs.map(i=>'<div style="position:relative;margin-top:12px"><img src="'+src(i)+'" alt="" loading="lazy">'+badge(i)+'</div>').join('')).join(''));
+      return; }
+    const d=e.target.closest('[data-d]');
+    if(d){ openViewer('<span lang="ar">تصميم 3D</span><span lang="en">3D design</span>','<div style="position:relative"><img src="'+src(d.dataset.d)+'" alt="3D interior render">'+badge(d.dataset.d)+'</div>'); }
+  });
+
+  const btn=document.getElementById('langBtn');
+  function setLang(l){
+    site.dataset.lang=l; site.dir=l==='ar'?'rtl':'ltr';
+    document.documentElement.lang=l; btn.textContent=l==='ar'?'EN':'عربي';
+    try{localStorage.setItem('site-lang',l)}catch(e){}
+    buildWa();
+  }
+  btn.addEventListener('click',()=>setLang(lang()==='ar'?'en':'ar'));
+
+  document.getElementById('copyBtn').addEventListener('click',()=>{
+    navigator.clipboard.writeText('+201224407120').catch(()=>{
+      const r=document.createRange(); r.selectNodeContents(document.getElementById('phone'));
+      const s=getSelection(); s.removeAllRanges(); s.addRange(r);
+    });
+  });
+
+  const v=id=>document.getElementById(id).value.trim();
+  function buildWa(){
+    const ar=lang()==='ar';
+    const lines=[ar?'أهلاً، عايز استشارة ديكور.':'Hello, I would like an interior design consultation.'];
+    if(v('f-name')) lines.push((ar?'الاسم: ':'Name: ')+v('f-name'));
+    lines.push((ar?'نوع المشروع: ':'Project: ')+v('f-type'));
+    if(v('f-area')) lines.push((ar?'المساحة: ':'Area: ')+v('f-area')+' m²');
+    if(v('f-loc')) lines.push((ar?'المنطقة: ':'Location: ')+v('f-loc'));
+    if(v('f-msg')) lines.push(v('f-msg'));
+    document.getElementById('sendWa').href='https://wa.me/201224407120?text='+encodeURIComponent(lines.join('\n'));
+  }
+  document.getElementById('quote').addEventListener('input',buildWa);
+  document.getElementById('quote').addEventListener('submit',e=>e.preventDefault());
+
+  let saved='en'; try{saved=localStorage.getItem('site-lang')||'en'}catch(e){}
+  setLang(saved);
+})();
+</script>
+
+</body>
+</html>
